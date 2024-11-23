@@ -1,0 +1,6 @@
+./node_modules
+Dockerfile
+.dockerignore
+docker-compose.yml
+stable-diffusion-webui
+venv
