@@ -25,7 +25,7 @@ npm install
 Step 3: Put your credentials in the .env file.
 
 ```bash
-PORT=3000
+PORT=3030
 MONGODB_URI=YOUR MONGODB URI
 DB_NAME=DATABASE NAME OF YOUR CHOICE
 DB_USER=DATABASE USER
