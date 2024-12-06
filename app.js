@@ -63,41 +63,41 @@ app.use((err, req, res, next) => {
 
 
 // 画像生成API
-app.post("/api/generate", async (req, res) => {
-  const { prompt } = req.body;
+// app.post("/api/generate", async (req, res) => {
+//   const { prompt } = req.body;
 
-  if (!prompt) {
-    return res.status(400).json({ error: "Prompt is required" });
-  }
+//   if (!prompt) {
+//     return res.status(400).json({ error: "Prompt is required" });
+//   }
 
-  try {
-    const response = await axios.post("http://127.0.0.1:7860/sdapi/v1/txt2img", {
-      prompt: prompt,
-      steps: 20,
-    });
+//   try {
+//     const response = await axios.post("http://127.0.0.1:7860/sdapi/v1/txt2img", {
+//       prompt: prompt,
+//       steps: 20,
+//     });
 
-    if (response.status === 200) {
-      let imagePath = response.data.images[0];
+//     if (response.status === 200) {
+//       let imagePath = response.data.images[0];
 
-      // クエリパラメータを取り除く
-      imagePath = imagePath.split('?')[0];
+//       // クエリパラメータを取り除く
+//       imagePath = imagePath.split('?')[0];
 
-      // ファイルパスを正規化
-      const cleanImagePath = path.normalize(imagePath);
+//       // ファイルパスを正規化
+//       const cleanImagePath = path.normalize(imagePath);
 
-      return res.json({ image: cleanImagePath });
-    } else {
-      return res.status(500).json({ error: "Failed to generate image" });
-    }
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: "Error generating image" });
-  }
-});
+//       return res.json({ image: cleanImagePath });
+//     } else {
+//       return res.status(500).json({ error: "Failed to generate image" });
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).json({ error: "Error generating image" });
+//   }
+// });
 
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3030;
 
 app.listen(PORT, () => {
   console.log('Server started on port ' + PORT + '...');
