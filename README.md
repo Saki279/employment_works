@@ -1,4 +1,5 @@
-## 使用技術一覧
+# プロジェクトの概要
+画像生成AIはDifyとStability Matrix(Stable Diffusion web ui)を連結させて実装しています。
 
 
 # RESTful API
