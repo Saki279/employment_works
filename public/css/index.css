@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+/* Googleフォント */
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Alfa+Slab+One|Audiowide|Bevan|Coiny|Poiret+One|Squada+One');
+
+
 /* 共通のスタイル */
 *{
   margin: 0;
@@ -9,6 +13,7 @@
 body{
   text-align: center;
   background-color: rgb(238, 198, 215);
+  background-color: rgb(232, 208, 218);
   overflow-x: hidden;
 }
 
@@ -38,22 +43,17 @@ div#wrap{
 nav {
   height: 80px;
   background-color: transparent;
-  position: fixed;
-  width: 100%;
+  position: relative;
+  width: 100vw;
   z-index: 100;
   clear: both;
-}
-
-nav h1 {
-  float: left;
-  margin: 28px 0 0 30px;
-  font-size: 2.2em;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav ul {
   float: right;
 }
-
 nav ul li {
   display: inline-block;
   list-style: none;
@@ -63,29 +63,36 @@ nav ul li {
   color: #a0a0a0;
   transition: all 0.5s ease;
   font-size: large;
+  font-weight: 600;
 }
-
 nav ul li:hover {
-  color: #000;
+  color: #5f5b5e;
 }
-
 nav ul li:last-child {
   margin-right: 20px;
 }
-
 nav ul li.active {
-  color: #000;
+  color: #5f5b5e;
 }
 
 .underline {
   position: absolute;
-  height: 4px;
   background-color: #ceaee8;
+  top: 55px;
+  left: -5px;
+  height: 4px;
   transition: all 0.5s ease;
 }
 
+.logo{
+  width: 200px;
+  height: 85px;
+  padding: 15px 0 0 3px;
+}
+
+
 .video {
-  position: relative;
+  /* position: relative; */
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -104,6 +111,35 @@ nav ul li.active {
   -webkit-mask-image: linear-gradient(to bottom, black 93%, transparent 100%);
 }
 
+
+/* main */
+#m-index{
+  width: 100vw;
+  height: 1000px;
+  position: relative; 
+}
+
+.container{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+
+
+/* footer */
+#footer{
+  text-align: center;
+  margin-top: 350px;
+  font-size: 12px;
+  height: 60px;
+  background-color: #eee;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  line-height: 20px;
+}
+
+
 /* main */
 #m-index{
   width: 100vw;
@@ -113,7 +149,7 @@ nav ul li.active {
 
 .contain{
   width: 100%;
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
 }
 
@@ -128,7 +164,7 @@ nav ul li.active {
 }
 .type--C {
   --line_color: #00135c;
-  --back_color: #defffa;
+  --back_color: #afbada;
 }
 .button {
   position: relative;
@@ -361,27 +397,128 @@ nav ul li.active {
 }
 
 .container {
-  width: 100%;
+  width: 300px;
   height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 350px;
+  right: 300px;
 }
 .button:not(:last-child) {
   margin-bottom: 64px;
 }
 
+.custom-title{
+  position: absolute;
+  top: -120px;
+  left: 120px;
+}
+.custom-title img{
+  width: 400px;
+}
+.custom-frame{
+  position: absolute;
+  top: 140px;
+  left: 280px;
+  z-index: -1;
+}
+.custom-frame img{
+  width: 400px;
+  height: 400px;
+}
+.custom-frame3{
+  position: absolute;
+  top: 140px;
+  left: 280px;
+  z-index: -5;
+}
+.custom-frame3 img{
+  width: 400px;
+  height: 400px;
+  filter: opacity(0.7);
+}
+.custom-frame2{
+  position: absolute;
+  top: -5px;
+  right: 190px;
+}
+.custom-frame2 img{
+  width: 290px;
+  height: 290px;
+}
+.detail{
+  position: absolute;
+  top: 100px;
+  right: 480px;
+}
+/* sample : Shadow */
+.sample-4 {
+	left: 8px;
+	top: 8px;
+	background: linear-gradient(-45deg, #CDC6FF 25%, #fff 25.1%, #fff 50%, #CDC6FF 50.1%, #CDC6FF 75%, #fff 75.1%, #fff 0);
+	background-size: 4px 4px;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-family: 'Abril Fatface';
+}
+.decorated {
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	margin: 0;
+}
+.decorated:before {
+	content: attr(data-text);
+	position: absolute;
+	z-index: 2;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.decorated:after {
+	content: attr(data-text);
+	position: absolute;
+	z-index: 3;
+	-webkit-text-fill-color: transparent;
+}
+.sample-4 {
+	left: 8px;
+	top: 8px;
+	background: linear-gradient(-45deg, #90a8d3 25%, #fff 25.1%, #fff 50%, #c6d5ff 50.1%, #c6d8ff 75%, #fff 75.1%, #fff 0);
+	background-size: 4px 4px;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-family: 'Abril Fatface';
+  font-size: 42px;
+}
+.sample-4:before {
+	left: -6px;
+	top: -6px;
+	-webkit-text-fill-color: #83a7de;
+	-webkit-text-stroke: 1px #7d94dc;
+}
 
+.detail1{
+  position: absolute;
+  top: 230px;
+  right: 340px;
+  text-align: left;
+  line-height: 45px;
+}
 
-/* footer */
-#footer{
-  text-align: center;
-  margin-top: 100px;
-  font-size: 12px;
-  height: 70px;
-  background-color: #eee;
-  border-top: 1px solid #ddd;
-  padding-top: 10px;
-  margin-top: 200px;
+.detail1 p{
+  font-family: "Zen Maru Gothic", serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 18px;
+  color: #d57e7e;
+}
+
+.ai{
+  width: 60%; height: 70%; min-height: 600px; border-radius: 20px; background-color: rgba(255,255,255,0.5); 
+  position: absolute;
+  top: 300px;
+  left: 200px;
 }

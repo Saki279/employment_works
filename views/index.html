@@ -1,69 +1,95 @@
 <!DOCTYPE html>
-
 <html lang="ja">
-
   <head>
-
     <meta charset="utf-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>top</title>
 
     <link rel="stylesheet" type="text/css" href="/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/css/index.css">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
 
     <!-- jQuery本体 CDN -->
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/js/common.js"></script>
 
   </head>
-
   <body>
 
     <header>
 
       <nav>
-        <h1>Website Title</h1>
+        <img src="/images/logo.png" alt="logo" class="logo">
         <ul>
-          <li class="active">Home</li>
-          <li>About</li>
-          <li>Contact Form</li>
+          <a href="/"><li data-page="home">Home</li></a>
+          <a href="/design"><li data-page="customize">Customize-Design</li></a>
         </ul>
-        <div class="underline"></div>
+        <!-- <div class="underline"></div> -->
       </nav>
-
+      
       <div class="video">
         <video autoplay loop muted playsinline poster="/images/poster.png" src="/images/top.mp4"></video>
+        <div class="wave-overlay"></div>
       </div>
 
     </header>
-
 
     <main id="m-index">
 
       <div class="contain">
 
-        <!-- <div class="container">
-          <a href="http://127.0.0.1:7860/" target="_blank" class="button type--C">
+        <figure class="custom-title">
+          <img src="/images/title2.png" alt="title">
+        </figure>
+
+        <figure class="custom-frame">
+          <img src="/images/frame.png" alt="frame">
+        </figure>
+
+        <figure class="custom-frame3">
+          <img src="/images/work2.png" alt="logo">
+        </figure>
+
+        <figure class="custom-frame2">
+          <img src="/images/frame2.png" alt="frame2">
+        </figure>
+
+        <div class="detail">
+          <p><span class="decorated sample-4" data-text="Turn your ideas">Turn your ideas</span></p>
+          <p><span class="decorated sample-4" data-text="into reality">into reality</span></p>
+        </div>
+
+        <div class="detail1">
+          <p>自分のオリジナル画像を作成できます。<br>
+            画像をアップロードしたり、<br>
+            画像にテキストやスタンプを自由に追加可能で、<br>
+            デザインの大きさや位置も直感的に調整できます。
+          </p>
+        </div>
+
+        <div class="container">
+          <a href="/design" class="button type--C">
             <div class="button__line"></div>
             <div class="button__line"></div>
-            <span class="button__text">ENTRY</span>
+            <span class="button__text">START</span>
             <div class="button__drow1"></div>
             <div class="button__drow2"></div>
-            </a>
-        </div> -->
+          </a>
+        </div>
 
         <iframe
          src="http://localhost/chatbot/cHAprM1LxjskQFlO"
-         style="width: 90%; height: 80%; min-height: 600px; border-radius: 20px; background-color: rgba(255,255,255,0.5); margin-top:150px;"
+         style="width: 60%; height: 70%; min-height: 600px; border-radius: 20px; background-color: rgba(255,255,255,0.5); margin:300px 0 50px 100px;"
          frameborder="0"
-         allow="microphone">
+         allow="microphone" class="ai">
         </iframe>
 
       </div>
       
-
     </main>
 
 
@@ -78,5 +104,4 @@
     <script type="text/javascript" src="/js/common.js"></script>
 
   </body>
-
 </html>

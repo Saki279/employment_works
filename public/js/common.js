@@ -1,87 +1,45 @@
 /*navigation*/
-$(function() {
-  
-  var $firstChild = $('nav ul li:first-child');
-  var $secondChild = $('nav ul li:nth-child(2)');
-  var $thirdChild = $('nav ul li:nth-child(3)');
-  
-  //defining function to create underline initial state on document load
-  function initialState() {
-    $('.underline').css({
-      "width": $firstChild.width(),
-      "left": $firstChild.position().left,
-      "top": $firstChild.position().top + $firstChild.outerHeight(true) + 'px'
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector("nav");
+  const ul = nav.querySelector("ul");
+  const underline = nav.querySelector(".underline");
+  const items = ul.querySelectorAll("a li"); // <a> 内の <li> を取得
+
+  // 現在のページURLを取得
+  const currentPage = window.location.pathname;
+
+  function moveUnderline(element) {
+    const rect = element.getBoundingClientRect();
+    const navRect = nav.getBoundingClientRect();
+
+    underline.style.width = `${rect.width}px`;
+    underline.style.transform = `translateX(${rect.left - navRect.left}px)`;
   }
-  initialState(); //() used after calling function to call function immediately on doc load
-  
-  //defining function to change underline depending on which li is active
-  function changeUnderline(el) {
-    $('.underline').css({
-      "width": el.width(),
-      "left": el.position().left,
-      "top": el.position().top + el.outerHeight(true) + 'px'
+
+  // 現在のURLに対応するリンクを探し、activeクラスを付与
+  let activeItem = null;
+  items.forEach(item => {
+    const link = item.parentElement; // <li> の親 <a>
+    const href = new URL(link.href).pathname;
+
+    if (currentPage === href) {
+      item.classList.add("active");
+      activeItem = item;
+    }
+  });
+
+  // 初期設定：アクティブな項目に下線を移動
+  if (activeItem) {
+    moveUnderline(activeItem);
+  }
+
+  // 各項目にクリックイベントを付与
+  items.forEach(item => {
+    const link = item.parentElement; // <li> の親 <a>
+    link.addEventListener("click", () => {
+      ul.querySelector(".active")?.classList.remove("active");
+      item.classList.add("active");
+      moveUnderline(item);
     });
-  } //note: have not called the function...don't want it called immediately
-  
-  $firstChild.on('click', function(){
-    var el = $firstChild;
-    changeUnderline(el); //call the changeUnderline function with el as the perameter within the called function
-    $secondChild.removeClass('active');
-    $thirdChild.removeClass('active');
-    $(this).addClass('active');
-  });
-  
-  $secondChild.on('click', function(){
-    var el = $secondChild;
-    changeUnderline(el); //call the changeUnderline function with el as the perameter within the called function
-    $firstChild.removeClass('active');
-    $thirdChild.removeClass('active');
-    $(this).addClass('active');
-  });
-  
-  $thirdChild.on('click', function(){
-    var el = $thirdChild;
-    changeUnderline(el); //call the changeUnderline function with el as the perameter within the called function
-    $firstChild.removeClass('active');
-    $secondChild.removeClass('active');
-    $(this).addClass('active');
-  });
-  
-  
-  $('button').on('click', function(){
-    $overlay.addClass('visible');
-    $mainPopUp.addClass('visible');
-    $signIn.addClass('active');
-    $register.removeClass('active');
-    $formRegister.removeClass('move-left');
-    $formSignIn.removeClass('move-left');
-  });
-  $overlay.on('click', function(){
-    $(this).removeClass('visible');
-    $mainPopUp.removeClass('visible');
-  });
-  $('#popup-close-button a').on('click', function(e){
-    e.preventDefault();
-    $overlay.removeClass('visible');
-    $mainPopUp.removeClass('visible');
-  });
-  
-  $signIn.on('click', function(){
-    $signIn.addClass('active');
-    $register.removeClass('active');
-    $formSignIn.removeClass('move-left');
-    $formRegister.removeClass('move-left');
-  });
-  
-  $register.on('click', function(){
-    $signIn.removeClass('active');
-    $register.addClass('active');
-    $formSignIn.addClass('move-left');
-    $formRegister.addClass('move-left');
-  });
-  
-  $('input').on('submit', function(e){
-    e.preventDefault(); //used to prevent submission of form...remove for real use
   });
 });

@@ -44,6 +44,11 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
+app.get("/design", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "design.html"));
+});
+
+
 
 //404 handler and pass to error handler
 app.use((req, res, next) => {
