@@ -1,3 +1,7 @@
+# プロジェクトの概要
+画像生成AIはDifyとStability Matrix(Stable Diffusion web ui)を連結させて実装しています。
+
+
 # RESTful API
 
 This is a RESTful API example based on Node.js and MongoDB, following the **MVC pattern** i.e. Model ~~View~~ Controller.
